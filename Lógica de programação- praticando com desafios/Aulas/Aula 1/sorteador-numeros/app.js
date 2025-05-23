@@ -8,10 +8,17 @@ function sortear(){
     let numero = 0;
     for (let i = 0; i < qtd; i++) {
         numero = obterNumeroAleatorio(de, ate);
-        sorteados.push(numero);
+//Não repetir numero
+    while (sorteados.includes(numero)){
+        numero = obterNumeroAleatorio(de, ate);
     }
 
-alert(sorteados)
+        sorteados.push(numero);
+    }
+//Exibir os números aleatórios
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`;
+
 }
 //numero aleatorio
 function obterNumeroAleatorio(min, max){
