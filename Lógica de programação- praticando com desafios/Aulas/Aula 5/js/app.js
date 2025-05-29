@@ -4,64 +4,76 @@ function adicionar() {
   let listaElement = document.getElementById('lista-amigos');
   let nome = nomeInput.value.trim();
 
-  // Verificar se o nome está vazio
   if (nome === "") {
     alert("Digite um nome antes de adicionar.");
     return;
   }
 
-  // Verificar se o nome já foi adicionado
-  let nomesAtuais = listaElement.textContent.split(',').map(n => n.trim());
-  if (nomesAtuais.includes(nome)) {
-    alert("Esse nome já foi adicionado.");
-    nomeInput.value = "";
-    return;
+  // Verificar se o nome já existe
+  let spans = listaElement.querySelectorAll('span');
+  for (let span of spans) {
+    if (span.textContent === nome) {
+      alert("Esse nome já foi adicionado.");
+      nomeInput.value = "";
+      return;
+    }
   }
 
-  // Adicionar nome com vírgula se já houver outros
-  if (listaElement.textContent.trim() !== "") {
-    listaElement.textContent += ", " + nome;
-  } else {
-    listaElement.textContent = nome;
-  }
+  // Criar um span para o nome
+  let span = document.createElement('span');
+  span.textContent = nome;
+  span.style.cursor = "pointer";
+  span.style.marginRight = "10px";
 
-  // Limpar o campo
+  // Adiciona funcionalidade de remover ao clicar
+  span.addEventListener('click', function () {
+    listaElement.removeChild(span);
+  });
+
+  listaElement.appendChild(span);
   nomeInput.value = "";
 }
 
 
-function sortear(){
-//pegar os nomes da lista de amigos incluidos
-let listaElement = document.getElementById('lista-amigos');
-//pegar o valor da lista de sorteio
-let resultadoElement = document.getElementById('lista-sorteio');
-//embaralhar os nomes
-  // Verificar se há nomes suficientes
-let nomes = listaElement.textContent.split(',').map(nome => nome.trim()).filter(nome => nome !== "");
 
-if (nomes.length < 2) {
+function sortear() {
+  let listaElement = document.getElementById('lista-amigos');
+  let resultadoElement = document.getElementById('lista-sorteio');
+
+  // Pegar os nomes dos spans
+  let spans = listaElement.querySelectorAll('span');
+  let nomes = [];
+
+  for (let span of spans) {
+    let nome = span.textContent.trim();
+    if (nome !== "") {
+      nomes.push(nome);
+    }
+  }
+
+  if (nomes.length < 2) {
     alert("Adicione pelo menos 2 amigos para sortear.");
     return;
-}
+  }
 
-  // Embaralhar os nomes pelo algoritmo Fisher-Yates
-let sorteio = [...nomes];
-for (let i = sorteio.length - 1; i > 0; i--) {
+  // Embaralhar
+  let sorteio = [...nomes];
+  for (let i = sorteio.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [sorteio[i], sorteio[j]] = [sorteio[j], sorteio[i]];
-}
+  }
 
-  // Montar os pares
-let resultado = "";
-for (let i = 0; i < sorteio.length; i++) {
+  // Criar pares
+  let resultado = "";
+  for (let i = 0; i < sorteio.length; i++) {
     let amigo1 = sorteio[i];
-    let amigo2 = sorteio[(i + 1) % sorteio.length]; // o último presenteia o primeiro
+    let amigo2 = sorteio[(i + 1) % sorteio.length];
     resultado += `${amigo1} → ${amigo2}<br>`;
+  }
+
+  resultadoElement.innerHTML = resultado;
 }
 
-  // Mostrar na tela
-resultadoElement.innerHTML = resultado;
-}
 
 function reiniciar(){
 //pegar os dados
