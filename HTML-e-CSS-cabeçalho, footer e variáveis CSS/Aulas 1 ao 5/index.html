@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <header></header>
+    <header class="cabecalho">
+        <nav class="cabecalho__menu">
+            <a class="cabecalho__menu__link" href="index.html">Home</a>
+            <a class="cabecalho__menu__link" href="about.html">Sobre Mim</a>
+        </nav>
+    </header>
     <main class="apresentacao">
         <section class="apresentacao__conteudo">
             <!-- titulo -->
@@ -19,17 +24,28 @@
             <div class="apresentacao__links">
                 <h2 class="apresentacao__links__subtitulo">Acesse minhas redes</h2>
                 <!-- Botões -->
-                <a class="apresentacao__links__link" href="https://instagram.com/tuturley">Instagram</a>
+                <a class="apresentacao__links__link" href="https://instagram.com/tuturley">
+                    <img src="./Assets/assets/instagram.png" alt="Instagram">
+                    Instagram
+                </a>
+                
                 <a class="apresentacao__links__link" href="https://github.com/tuturley">
-                    <img src="" alt="">
+                    <img src="./Assets/assets/github.png" alt="Github">
                     Github
+                </a>
+                <a class="apresentacao__links__link" href="https://www.linkedin.com/in/arthur-ferreira-2b0b1a1b6/">
+                    <img src="./Assets/assets/linkedin.png" alt="Linkedin">
+                    Linkedin
                 </a>
             </div>
         </section>
         <!-- imagem -->
-        <img src="Foto Arthur Rosto.jpeg" alt="Foto Rosto Arthur">
+        <img src="./Assets/assets/Foto Arthur Rosto.jpeg" class="img-Rosto" alt="Foto Rosto Arthur">
     </main>
-    <footer></footer>
+    
+    <footer class="rodape">
+        <p>Desenvolvido por Arthur Ferreira</p>
+    </footer>
     
 </body>
 </html>
