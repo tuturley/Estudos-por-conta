@@ -27,8 +27,18 @@ Estudos-por-conta/
 ## ✅ Cursos já feitos ou em andamento
 
 - [x] Começando em Programação: carreira e primeiros passos
-- [ ] Lógica de programação: mergulhe em programação com JavaScript
-
+- [x] Lógica de programação: mergulhe em programação com JavaScript
+- [x] Lógica de programação: explore funções e listas
+- [x] Git e GitHub: compartilhando e colaborando em projetos
+- [x] Lógica de programação: praticando com desafios
+- [x] HTML e CSS: ambientes de desenvolvimento, estrutura de arquivos e tags
+- [x] HTML e CSS: Classes, posicionamento e Flexbox
+- [x] HTML e CSS: cabeçalho, footer e variáveis CSS
+- [x] JavaScript para Web: Crie páginas dinâmicas
+- [ ] JavaScript: manipulando elementos no DOM
+- [ ] DevOps: trabalhando com repositórios no GitHub
+- [ ] Git e GitHub: dominando controle de versão de código
+- [ ] Aprender a aprender: técnicas para seu autodesenvolvimento
 ---
 
 ## 🛠️ Tecnologias em estudo
