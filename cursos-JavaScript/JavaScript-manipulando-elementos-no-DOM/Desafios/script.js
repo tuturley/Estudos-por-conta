@@ -1,16 +1,36 @@
-//Desafio 1:
-const html = document.querySelector('html');
-const timer = document.querySelector('#timer');
-const img = document.querySelector('.app__image');
-const text = document.querySelector('.app__title');
-//Desafio 2:
-console.log("html:", html, "timer:", timer, "img:", img, "text:", text);
-//Desafio 3:
-const startBtn = document.querySelector('.app__card-primary-button');
-const focoBtn = document.querySelector('.app__card-button--foco');
-const curtoBtn = document.querySelector('.app__card-button--curto');
-const longoBtn = document.querySelector('.app__card-button--longo');
-//Desafio 4:
-const focoTimer = 1500;
-const curtoTimer = 300;
-const longoTimer = 900;
+// Seleciona os botões
+const btnFoco = document.getElementById('btnFoco');
+const btnCurto = document.getElementById('btnCurto');
+const btnLongo = document.getElementById('btnLongo');
+
+// Lista todos os botões para facilitar a manipulação
+const botoes = [btnFoco, btnCurto, btnLongo];
+
+// Função para trocar a classe active
+function ativarBotao(botaoSelecionado) {
+  botoes.forEach(botao => {
+    botao.classList.remove('active');
+  });
+  botaoSelecionado.classList.add('active');
+}
+
+// Eventos de clique
+btnFoco.addEventListener('click', () => ativarBotao(btnFoco));
+btnCurto.addEventListener('click', () => ativarBotao(btnCurto));
+btnLongo.addEventListener('click', () => ativarBotao(btnLongo));
+
+// Cria o objeto de áudio
+const musica = new Audio('./sons/luna-rise-part-one.mp3');
+musica.loop = true
+
+// Pega o checkbox
+const checkbox = document.getElementById('toggleMusic');
+
+// Quando o checkbox muda de estado
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    musica.play();
+  } else {
+    musica.pause();
+  }
+});
