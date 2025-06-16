@@ -5,8 +5,20 @@ const longoBtn = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 const titulo = document.querySelector('.app__title');
 const buttons = document.querySelectorAll('.app__card-button');
-const musicaFocoInput = document.querySelector('#alternar-musica')
-const musica = new Audio('./sons/luna-rise-part-one.mp3')
+const musicaFocoInput = document.querySelector('#alternar-musica');
+const startPauseBtn = document.querySelector('#start-pause');
+const iniciarOuPausarBtn = document.querySelector('#start-pause span')
+const imagemComeçarOuPausarBtn = document.querySelector('.app__card-primary-butto-icon')
+//Audios
+const musica = new Audio('./sons/luna-rise-part-one.mp3');
+const startAudio = new Audio('./sons/play.wav');
+const pauseAudio = new Audio('./sons/pause.mp3');
+const alertAudio = new Audio('./sons/beep.mp3');
+
+
+let tempoDecorridoEmSegundos = 5
+let intervaloId = null
+
 musica.loop = true;
 
 musicaFocoInput.addEventListener('change', () => {
@@ -61,4 +73,37 @@ function alterarContexto(contexto) {
         default:
             break;
     }
+}
+
+const contagemRegressiva = () => {
+    if (tempoDecorridoEmSegundos <= 0){
+        //alertAudio.play()
+        alert('Tempo Finalizado')
+        zerar()
+        return
+    }
+    tempoDecorridoEmSegundos -= 1
+    console.log('temporizador: ' + tempoDecorridoEmSegundos)
+}
+
+startPauseBtn.addEventListener('click', iniciarOuPausar)
+
+function iniciarOuPausar() {
+    if (intervaloId) {
+        zerar();
+        pauseAudio.play();
+        return;
+    }
+
+    startAudio.play();
+    intervaloId = setInterval(contagemRegressiva, 1000);
+    iniciarOuPausarBtn.textContent = "Pausar";
+    imagemComeçarOuPausarBtn.setAttribute('src', './imagens/pause.png'); // Troca para imagem de pausa
+}
+
+function zerar() {
+    clearInterval(intervaloId);
+    iniciarOuPausarBtn.textContent = "Começar";
+    imagemComeçarOuPausarBtn.setAttribute('src', './imagens/play_arrow.png'); // Volta para imagem de play
+    intervaloId = null;
 }
