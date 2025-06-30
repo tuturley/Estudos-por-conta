@@ -4,18 +4,86 @@ body{
 
 h1 {
     text-align: center;
-    color: #333333;
+    color: hsl(0, 0%, 20%);
+    font-size: 5em;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* Texto input */
+.container #taskInput {
+    width: 300px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #12C4E4;
+    padding: 0 10px;
+    font-size: 15px;
+}
+/* Botões */
+.container button {
+    background-color: #12C4E4;
+    color: #000000;
+    border: 1px solid #12C4E4;
+    border-radius: 4px;
+    padding: 14px 20px;
+    display: inline-block;
+}
+.container button#addTaskBtn {
+    margin-left: 10px;
+    height: 40px;
+
+}
+.container button#cleanTaskBtn {
+    margin-left: 10px;
+    height: 40px;
+}
+/* caixa com as tarefas */
+.container-taskList {
+    width: 1300px;
+    height: 650px;
+    margin: 0 auto;
     background-color: #D9D9D9;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 195, 255, 0.377);
+    box-shadow: 0px 0px 10px rgba(0, 195, 255, 0.377);
+    margin-top: 20px;
 }
 
-.container-taskList {
-    background-color: #D9D9D9;
+.container-taskList #completeTaskBtn{
+    color: #000000;
+    border: 1px solid #12C4E4;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: 31px;
+}
+
+.container-taskList #removeTaskBtn{
+    color: #000000;
+    border: 1px solid #E41215;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: 31px;
+}
+
+/* Hovers */
+.container-taskList #removeTaskBtn:hover {
+    background-color: #E41215;
+    color: #FFFFFF;
+}
+
+.container-taskList #completeTaskBtn:hover {
+    background-color: #12C4E4;
+    color: #FFFFFF;
+}
+
+.container button:hover {
+    background-color: #03afce;
+    color: #FFFFFF;
 }

@@ -10,14 +10,18 @@
 <body>
     <h1>To Do List</h1>
     <div class="container">
-        <input type="text" id="taskIpunt" placeholder="Tarefa Nova">
+        <input type="text" id="taskInput" placeholder="Tarefa Nova">
     <button id="addTaskBtn">Add Tarefa</button>
     <button id="cleanTaskBtn">Limpar Tudo</button>
-    <button id="removeTaskBtn">X</button>
-    <button id="completeTaskBtn">✓</button>
     </div>
     <div class="container-taskList">
-        <ul id="taskList"></ul>
+        <button id="completeTaskBtn">✓</button>
+        <button id="removeTaskBtn">☓</button>
+        <ul id="taskList">
+            <!-- As tarefas serão adicionadas aqui dinamicamente -->
+            <li>teste</li>
+            <li>teste2</li>
+        </ul>
     </div>
 </body>
 </html>
