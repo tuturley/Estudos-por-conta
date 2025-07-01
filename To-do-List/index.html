@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/main.css">
-    <script src="script/main.js" defer></script>
-    <title>To do List</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style/main.css" />
+<script src="script/main.js" defer></script>
+<title>To do List</title>
 </head>
 <body>
-    <h1>To Do List</h1>
-    <div class="container">
-        <input type="text" id="taskInput" placeholder="Tarefa Nova">
+<h1>To Do List</h1>
+
+<div class="container">
+    <input type="text" id="taskInput" placeholder="Tarefa Nova" />
     <button id="addTaskBtn">Add Tarefa</button>
     <button id="cleanTaskBtn">Limpar Tudo</button>
-    </div>
-    <div class="container-taskList">
-        <button id="completeTaskBtn">✓</button>
-        <button id="removeTaskBtn">☓</button>
-        <ul id="taskList">
-            <!-- As tarefas serão adicionadas aqui dinamicamente -->
-            <li>teste</li>
-            <li>teste2</li>
-        </ul>
-    </div>
+</div>
+
+<div class="container-taskList">
+    <ul class="taskList" id="taskList">
+    <li>
+        teste
+        <div class="buttons-taskList">
+        <button class="completeTaskBtn">✓</button>
+        <button class="removeTaskBtn">X</button>
+        </div>
+    </li>
+    <li>
+        teste2
+        <div class="buttons-taskList">
+        <button class="completeTaskBtn">✓</button>
+        <button class="removeTaskBtn">X</button>
+        </div>
+    </li>
+    </ul>
+</div>
 </body>
 </html>

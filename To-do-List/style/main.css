@@ -1,13 +1,34 @@
-body{
+/* === ESTILO GERAL === */
+body {
     background-color: #EEEEEE;
+    font-family: sans-serif;
 }
 
+/* Título */
 h1 {
     text-align: center;
     color: hsl(0, 0%, 20%);
     font-size: 5em;
+    margin-bottom: 20px;
 }
 
+#taskInput {
+    text-align: center;
+}
+
+#taskInput::placeholder {
+    text-align: center;
+  color: #888888; /* cor do placeholder normal */
+    transition: color 0.3s ease;
+}
+
+#taskInput:focus::placeholder {
+  color: transparent; /* desaparece ao clicar */
+}
+
+
+
+/* === CONTAINER DE INPUT E BOTÕES DE CONTROLE === */
 .container {
     width: 80%;
     margin: 0 auto;
@@ -15,19 +36,25 @@ h1 {
     background-color: #EEEEEE;
     border-radius: 8px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    gap: 0px;
+    flex-wrap: wrap;
 }
-/* Texto input */
+
+/* Input de nova tarefa */
 .container #taskInput {
     width: 300px;
-    height: 40px;
-    border-radius: 4px;
-    border: 1px solid #12C4E4;
+    height: 37px;
     padding: 0 10px;
     font-size: 15px;
+    border: 1px solid #12C4E4;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    display: flex;
+    align-items: center;
 }
-/* Botões */
+
+/* Botões principais */
 .container button {
     background-color: #12C4E4;
     color: #000000;
@@ -35,55 +62,99 @@ h1 {
     border-radius: 4px;
     padding: 14px 20px;
     display: inline-block;
-}
-.container button#addTaskBtn {
-    margin-left: 10px;
-    height: 40px;
-
-}
-.container button#cleanTaskBtn {
-    margin-left: 10px;
-    height: 40px;
-}
-/* caixa com as tarefas */
-.container-taskList {
-    width: 1300px;
-    height: 650px;
-    margin: 0 auto;
-    background-color: #D9D9D9;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 195, 255, 0.377);
-    margin-top: 20px;
-}
-
-.container-taskList #completeTaskBtn{
-    color: #000000;
-    border: 1px solid #12C4E4;
-    border-radius: 4px;
-    padding: 6px 10px;
-    height: 31px;
-}
-
-.container-taskList #removeTaskBtn{
-    color: #000000;
-    border: 1px solid #E41215;
-    border-radius: 4px;
-    padding: 6px 10px;
-    height: 31px;
-}
-
-/* Hovers */
-.container-taskList #removeTaskBtn:hover {
-    background-color: #E41215;
-    color: #FFFFFF;
-}
-
-.container-taskList #completeTaskBtn:hover {
-    background-color: #12C4E4;
-    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .container button:hover {
     background-color: #03afce;
+    color: #FFFFFF;
+}
+/* Botão de adicionar tarefa */
+.container button#addTaskBtn {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+/* Botão de limpar tudo */
+.container button#cleanTaskBtn {
+    margin-left: 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+/* === CONTAINER DA LISTA DE TAREFAS === */
+.container-taskList {
+    width: 80%;
+    margin: 20px auto 0;
+    background-color: #D9D9D9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 195, 255, 0.377);
+    padding: 20px;
+}
+
+/* Lista de tarefas */
+.taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.5em;
+}
+
+/* Cada item da lista */
+.taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+/* === Botões de ação em cada tarefa === */
+.buttons-taskList {
+    display: flex;
+    gap: 8px;
+}
+
+/* Botão de completar */
+.completeTaskBtn {
+    background-color: #FFFFFF;
+    color: #12C4E4;
+    border: 1px solid #12C4E4;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: 31px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.completeTaskBtn:hover {
+    background-color: #12C4E4;
+    color: #FFFFFF;
+}
+
+/* Botão de remover */
+.removeTaskBtn {
+    background-color: #FFFFFF;
+    color: #E41215;
+    border: 1px solid #E41215;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: 31px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.removeTaskBtn:hover {
+    background-color: #E41215;
     color: #FFFFFF;
 }
