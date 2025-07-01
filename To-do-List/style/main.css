@@ -1,7 +1,27 @@
 /* === ESTILO GERAL === */
+:root {
+    --bg-color: #EEEEEE;
+    --text-color: #000000;
+    --input-bg: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --main-color: #12C4E4;
+    --danger-color: #E41215;
+}
+
 body {
-    background-color: #EEEEEE;
-    font-family: sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+body.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #f5f5f5;
+    --input-bg: #2b2b2b;
+    --card-bg: #333;
+}
+
+body.dark-mode h1 {
+    color: #f5f5f5;
 }
 
 /* Título */
@@ -26,7 +46,33 @@ h1 {
   color: transparent; /* desaparece ao clicar */
 }
 
+#taskInput:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(18, 196, 228, 0.5);
+}
+/* Toggle Theme/mudança de tema */
+#toggleTheme {
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+}
 
+/* Acessibilidade com visually-hidden */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
 
 /* === CONTAINER DE INPUT E BOTÕES DE CONTROLE === */
 .container {
@@ -69,6 +115,7 @@ h1 {
 .container button:hover {
     background-color: #03afce;
     color: #FFFFFF;
+    transform: scale(1.05);
 }
 /* Botão de adicionar tarefa */
 .container button#addTaskBtn {
@@ -117,8 +164,19 @@ h1 {
     background-color: #FFFFFF;
     border-radius: 6px;
     border-bottom: 1px solid #EEEEEE;
+    animation: fadeIn 0.3s ease-in;
 }
-
+/* Efeito de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* === Botões de ação em cada tarefa === */
 .buttons-taskList {
     display: flex;
@@ -140,6 +198,7 @@ h1 {
 .completeTaskBtn:hover {
     background-color: #12C4E4;
     color: #FFFFFF;
+    transform: scale(1.05);
 }
 
 /* Botão de remover */
@@ -157,4 +216,50 @@ h1 {
 .removeTaskBtn:hover {
     background-color: #E41215;
     color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.container #taskInput,
+.container button {
+    width: 100%;
+    max-width: 300px;
+}
+
+.taskList li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.buttons-taskList {
+    align-self: flex-end;
+}
+}
+
+header {
+    width: 80%;
+    margin: 30px auto 10px;
+    position: relative;
+}
+
+.top-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#toggleTheme {
+    background: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
