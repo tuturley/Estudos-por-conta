@@ -26,8 +26,12 @@ function adicionarTarefa() {
     botaoConcluir.classList.add("completeTaskBtn");
     botaoConcluir.textContent = "✓"
     botaoConcluir.onclick = function () {
-        p.style.textDecoration = p.style.textDecoration === "line-through" ? "none" : "line-through";
+        const jaConcluido = li.classList.contains("concluida");
+
+        li.classList.toggle("concluida");
+        p.style.textDecoration = jaConcluido ? "none" : "line-through";
     };
+
 
     const botaoRemover = document.createElement("button");
     botaoRemover.classList.add("removeTaskBtn");

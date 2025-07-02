@@ -264,3 +264,6 @@ header {
     border-radius: 8px;
     cursor: pointer;
 }
+.taskList li.concluida {
+    background-color: var(--success-color);
+}
