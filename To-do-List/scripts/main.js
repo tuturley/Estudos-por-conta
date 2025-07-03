@@ -63,6 +63,7 @@ function limparTudo() {
         item.remove()
     });
 };
+
 // Eventos: onclick, onkeypress, etc
 addTarefaBtn.addEventListener('click', adicionarTarefa);
 limparTarefaBtn.addEventListener('click', limparTudo);
