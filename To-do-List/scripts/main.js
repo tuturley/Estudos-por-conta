@@ -34,8 +34,11 @@ function adicionarTarefa() {
     botaoRemover.classList.add("removeTaskBtn");
     botaoRemover.textContent = "X";
     botaoRemover.onclick = function () {
+    li.classList.add('removendo');
+    setTimeout(() => {
         li.remove();
-    };
+    }, 300);
+};
  // ------------------- Adicionando a task e os botões ---------------------------
     divBotoes.appendChild(botaoConcluir);
     divBotoes.appendChild(botaoRemover);

@@ -264,6 +264,18 @@ header {
     border-radius: 8px;
     cursor: pointer;
 }
+
 .taskList li.concluida {
     background-color: var(--success-color);
+}
+
+/* Animações suaves ao marcar como concluída */
+.taskList li {
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animação para remoção */
+.taskList li.removendo {
+    opacity: 0;
+    transform: scale(0.95);
 }
