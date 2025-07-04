@@ -7,6 +7,10 @@
     --main-color: #12C4E4;
     --danger-color: #E41215;
     --success-color: #12E46F;
+    --container-bg: #d9d9d9;
+    --borda-color: #FFFFFF;
+    --botao-color: #12C4E4;
+    --preto-color: #000000;
 }
 
 body {
@@ -15,10 +19,15 @@ body {
 }
 
 body.dark-mode {
-    --bg-color: #1e1e1e;
+    --bg-color: #212529;
     --text-color: #f5f5f5;
     --input-bg: #2b2b2b;
     --card-bg: #333;
+    --borda-color: #1e2b32;
+    --preto-color: #12C4E4;
+    --container-bg: #2b2b2b;
+    --botao-color: #212529;
+    --success-color: #0F9D58;
 }
 
 body.dark-mode h1 {
@@ -50,17 +59,26 @@ h1 {
 #taskInput:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(18, 196, 228, 0.5);
+    border-color: var(--main-color);
+    color: var(--text-color);
 }
 /* Toggle Theme/mudança de tema */
 #toggleTheme {
     background: var(--main-color);
-    color: white;
-    border: none;
+    background-color: var(--botao-color);
+    color: var(--preto-color);
+    border: 1px solid var(--main-color);
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
     margin: 10px auto;
     display: block;
+}
+
+#toggleTheme:hover {
+    background-color: #03afce;
+    color: #FFFFFF;
+    transform: scale(1.05);
 }
 
 /* Acessibilidade com visually-hidden */
@@ -80,7 +98,7 @@ h1 {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #EEEEEE;
+    background-color: var(--bg-color);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -94,18 +112,19 @@ h1 {
     height: 37px;
     padding: 0 10px;
     font-size: 15px;
-    border: 1px solid #12C4E4;
+    border: 1px solid var(--main-color);
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     display: flex;
     align-items: center;
+    background-color: var(--input-bg);
 }
 
 /* Botões principais */
 .container button {
-    background-color: #12C4E4;
-    color: #000000;
-    border: 1px solid #12C4E4;
+    background-color: var(--botao-color);
+    color: var(--preto-color);
+    border: 1px solid var(--main-color);
     border-radius: 4px;
     padding: 14px 20px;
     display: inline-block;
@@ -139,7 +158,7 @@ h1 {
 .container-taskList {
     width: 80%;
     margin: 20px auto 0;
-    background-color: #D9D9D9;
+    background-color: var(--container-bg);
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 195, 255, 0.377);
     padding: 20px;
@@ -162,9 +181,9 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: #FFFFFF;
+    background-color: var(--card-bg);
     border-radius: 6px;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid var(--borda-color);
     animation: fadeIn 0.3s ease-in;
 }
 /* Efeito de fade-in */
@@ -186,9 +205,9 @@ h1 {
 
 /* Botão de completar */
 .completeTaskBtn {
-    background-color: #FFFFFF;
-    color: #12C4E4;
-    border: 1px solid #12C4E4;
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
     border-radius: 4px;
     padding: 6px 10px;
     height: 31px;
@@ -204,7 +223,7 @@ h1 {
 
 /* Botão de remover */
 .removeTaskBtn {
-    background-color: #FFFFFF;
+    background-color: var(--bg-color);
     color: #E41215;
     border: 1px solid #E41215;
     border-radius: 4px;
@@ -254,15 +273,6 @@ header {
     position: absolute;
     left: 0;
     top: 0;
-}
-
-#toggleTheme {
-    background: var(--main-color);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
 }
 
 .taskList li.concluida {

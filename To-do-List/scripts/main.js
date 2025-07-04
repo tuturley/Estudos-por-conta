@@ -3,7 +3,7 @@ const addTarefaBtn = document.getElementById('addTaskBtn');
 const limparTarefaBtn = document.getElementById('cleanTaskBtn');
 const feitoBtn = document.getElementsByClassName('completeTaskBtn');
 const naoFeitoBtn = document.getElementsByClassName('removeTaskBtn');
-const modoEscuro = document.getElementById('toggleTheme');
+const modoEscuroBtn = document.getElementById('toggleTheme');
 const tarefaInput = document.getElementById('taskInput');
 const listaDeTask = document.getElementById('taskList');
 // Funções principais: adicionar, remover, completar, limpar:
@@ -67,7 +67,19 @@ function limparTudo() {
     });
 };
 
+function trocarModo() {
+    const darkModeBtn = document.getElementById('body');
+    const trocarModoBtn = document.getElementById('toggleTheme');
+    darkModeBtn.classList.toggle("dark-mode");
+    if (darkModeBtn.classList.contains('dark-mode')) {
+        trocarModoBtn.innerHTML = "☀️ Modo Claro"
+    }
+    else {
+        trocarModoBtn.innerHTML = "🌙 Modo Escuro"
+    }
+}
 // Eventos: onclick, onkeypress, etc
 addTarefaBtn.addEventListener('click', adicionarTarefa);
 limparTarefaBtn.addEventListener('click', limparTudo);
+modoEscuroBtn.addEventListener('click', trocarModo);
 // Inicialização: carregar do localStorage ao abrir
