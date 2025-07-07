@@ -98,9 +98,9 @@ function trocarModo() {
 };
 
 function carregarTarefas() {
- // ------------------- Pegando os dados salvos no Local Storage ------------------
+ // ------------------- Pegando os dados salvos no Local Storage -------------------
     const tarefasSalvas = localStorage.getItem("tarefas");
- // ------------------- Verifica se há algo salvo no Local Storage ----------------
+ // ------------------- Verifica se há algo salvo no Local Storage -----------------
     if (tarefasSalvas) {
         tarefas = JSON.parse(tarefasSalvas);
  // ------------------- Para cada tarefa salva, criar os elementos novamente -------
@@ -124,7 +124,7 @@ function carregarTarefas() {
                 const jaConcluido = li.classList.contains("concluida");
                 li.classList.toggle("concluida");
                 p.style.textDecoration = jaConcluido ? "none" : "line-through";
- // ------------------- Atualiza o status no array e salva novamente --------------
+ // ------------------- Atualiza o status no array e salva novamente ---------------
                 tarefa.concluida = !jaConcluido;
                 localStorage.setItem("tarefas", JSON.stringify(tarefas));
             };
@@ -136,12 +136,12 @@ function carregarTarefas() {
                 li.classList.add('removendo');
                 setTimeout(() => {
                     li.remove();
- // ------------------- Remove a tarefa do array e salva novamente ----------------
+ // ------------------- Remove a tarefa do array e salva novamente -----------------
                     tarefas = tarefas.filter(t => t.texto !== tarefa.texto);
                     localStorage.setItem("tarefas", JSON.stringify(tarefas));
                 }, 300);
             };
- // ------------------- Montando a estrutura do item na lista ---------------------
+ // ------------------- Montando a estrutura do item na lista ----------------------
             divBotoes.appendChild(botaoConcluir);
             divBotoes.appendChild(botaoRemover);
             li.appendChild(p);
