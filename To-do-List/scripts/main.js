@@ -148,10 +148,17 @@ function carregarTarefas() {
     }
 };
 
+function adicionarTarefaComEnter(event) {
+ // ------------------- Função para adicionar tarefa ao apertar Enter -------------------
+    if (event.key === "Enter") {
+        adicionarTarefa();
+    }
+};
 // Eventos: onclick, onkeypress, etc
 addTarefaBtn.addEventListener('click', adicionarTarefa);
 limparTarefaBtn.addEventListener('click', limparTudo);
 modoEscuroBtn.addEventListener('click', trocarModo);
+tarefaInput.addEventListener('keydown', adicionarTarefaComEnter);
 // Inicialização: carregar do localStorage ao abrir
 carregarTarefas();
 
