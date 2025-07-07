@@ -47,8 +47,11 @@ function adicionarTarefa() {
     li.classList.add('removendo');
     setTimeout(() => {
         li.remove();
+// -------------------- Remove do array e atualiza localStorage ------------------
+    tarefas = tarefas.filter(t => t.texto !== tarefaTexto);
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
     }, 300);
-};
+    };
  // ------------------- Adicionando a task e os botões ---------------------------
     divBotoes.appendChild(botaoConcluir);
     divBotoes.appendChild(botaoRemover);
@@ -134,7 +137,7 @@ function carregarTarefas() {
                 setTimeout(() => {
                     li.remove();
  // ------------------- Remove a tarefa do array e salva novamente ----------------
-                    tarefas = tarefas.filter(t => t !== tarefa);
+                    tarefas = tarefas.filter(t => t.texto !== tarefa.texto);
                     localStorage.setItem("tarefas", JSON.stringify(tarefas));
                 }, 300);
             };
