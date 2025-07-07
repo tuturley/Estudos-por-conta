@@ -1,3 +1,10 @@
+/* Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Montserrat&display=swap');
+.jomhuria-regular {
+    font-family: "Jomhuria", serif;
+    font-weight: 400;
+    font-style: normal;
+}
 /* === ESTILO GERAL === */
 :root {
     --bg-color: #EEEEEE;
@@ -11,6 +18,7 @@
     --borda-color: #FFFFFF;
     --botao-color: #12C4E4;
     --preto-color: #000000;
+    --h1-color: hsl(0, 0%, 20%);
 }
 
 body {
@@ -28,17 +36,19 @@ body.dark-mode {
     --container-bg: #2b2b2b;
     --botao-color: #212529;
     --success-color: #0F9D58;
+    --h1-color: #12C4E4;
 }
 
 body.dark-mode h1 {
-    color: #f5f5f5;
+    color: var(--h1-color);
 }
 
 /* Título */
 h1 {
     text-align: center;
-    color: hsl(0, 0%, 20%);
-    font-size: 5em;
+    color: var(--h1-color);
+    font-family: 'Jomhuria', serif;
+    font-size: 10em;
     margin-bottom: 20px;
 }
 
